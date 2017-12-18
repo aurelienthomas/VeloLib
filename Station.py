@@ -10,8 +10,8 @@ def chargerJson(fichier):
         json_dict = json.load(f)
     return json_dict
 
-def test():
-    liste_station = chargerJson("Toulouse.json")
-    print(liste_station)
 
-test()
+
+
+liste_station = chargerJson("Toulouse.json")
+print(liste_station)

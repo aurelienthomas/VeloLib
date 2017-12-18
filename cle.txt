@@ -1,0 +1,15 @@
+jcdecaux
+
+adcf8bb9b76004df8324b59f7dc0a0a74e1658f0
+
+
+
+statique
+https://data.toulouse-metropole.fr/explore/embed/dataset/velo-toulouse/table/?static=false&datasetcard=false
+
+
+HTML request java
+https://stackoverflow.com/questions/2793150/using-java-net-urlconnection-to-fire-and-handle-http-requests
+
+API request
+https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=adcf8bb9b76004df8324b59f7dc0a0a74e1658f0

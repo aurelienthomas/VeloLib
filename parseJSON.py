@@ -22,7 +22,7 @@ def station_a_recharger():
     station_a_recharger = []
 
     for data in liste_data:
-        if data["available_bike_stands"] != data["bike_stands"] and data["status"] == "OPEN":
+        if data["available_bike_stands"] != data["bike_stands"]/2 and data["status"] == "OPEN":
             station_a_recharger.append(data)
 
     pprint(station_a_recharger)

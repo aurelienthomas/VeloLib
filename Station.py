@@ -23,29 +23,32 @@ def chargerJson(fichier):
 
 
 def graph(liste_donnees):
-    # import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
     axe_x = []
     axe_y = []
     for donnee in liste_donnees:
         axe_x.append(donnee["longitude"])
         axe_y.append(donnee["latitude"])
-    plt.plot(axe_x, axe_y)
+    plt.plot(axe_x, axe_y, "ro")
     plt.xlabel('longitude')
     plt.ylabel('latitude')
     plt.show()
 
 
 liste_station = chargerJson("Toulouse.json")
-distance_min = 3600000
 
 for station in liste_station:
+    distance_min = 3600000
     for station_proche in liste_station:
         if station['name'] != station_proche["name"]:
-            if station['name'] != station_proche["name"]:
-                distance = math.sqrt((station["longitude"] - station_proche["longitude"]) * (
-                    station["longitude"] - station_proche["longitude"])
-                                     + (station["latitude"] - station_proche["latitude"]) * (
-                                         station["latitude"] - station_proche["latitude"]))
-                if distance < distance_min:
-                    station_la_plus_proche = station_proche
-    station["Station_proche"] = station_la_plus_proche
+            distance = math.sqrt((station["longitude"] - station_proche["longitude"]) * (
+                station["longitude"] - station_proche["longitude"])
+                                 + (station["latitude"] - station_proche["latitude"]) * (
+                                     station["latitude"] - station_proche["latitude"]))
+            if distance < distance_min:
+                station_la_plus_proche = station_proche['name']
+    station["station_proche"] = station_la_plus_proche
+
+# graph(liste_station)
+for station in liste_station:
+    print(station["name"] + " : " + station["station_proche"])

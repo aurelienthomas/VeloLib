@@ -36,17 +36,20 @@ def graph(liste_donnees):
 
 
 liste_station = chargerJson("Toulouse.json")
-
+liste_station_visitable = chargerJson("Toulouse.json")
 for station in liste_station:
-    distance_min = 3600000
-    for station_proche in liste_station:
+    premier = True
+    distance_min = 0
+    liste_station_visitable.remove(station)
+    for station_proche in liste_station_visitable:
         if station['name'] != station_proche["name"]:
             distance = math.sqrt((station["longitude"] - station_proche["longitude"]) * (
                 station["longitude"] - station_proche["longitude"])
                                  + (station["latitude"] - station_proche["latitude"]) * (
                                      station["latitude"] - station_proche["latitude"]))
-            if distance < distance_min:
+            if distance < distance_min or premier == True:
                 station_la_plus_proche = station_proche['name']
+                premier = False
     station["station_proche"] = station_la_plus_proche
 
 # graph(liste_station)
